@@ -12,7 +12,7 @@ public class Hello extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     public Hello() {
-    	System.out.println("Hello()");
+    	System.out.println("Hello():v1");
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
