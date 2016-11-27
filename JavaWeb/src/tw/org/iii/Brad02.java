@@ -14,12 +14,24 @@ public class Brad02 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		// process request
+		int x, y, result;
+		try{
+			x = Integer.parseInt(request.getParameter("x"));
+			y = Integer.parseInt(request.getParameter("y"));
+		}catch (Exception ne){
+			x = 0; y = 0;
+		}
+		result = x + y;
+		
+		// Output
+		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		out.println("<form>");
-		out.println("<input type='text' name='x' /> + ");
-		out.println("<input type='text' name='y' />");
+		out.println("<input type='text' name='x' value='" + x + "' /> + ");
+		out.println("<input type='text' name='y' value='" + y + "' />");
 		out.println("<input type='submit' value='=' />");
+		out.println("<span>" + result + "<span>");
 		out.println("</form>");
 		out.flush();
 		out.close();
