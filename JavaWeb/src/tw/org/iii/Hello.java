@@ -1,6 +1,8 @@
 package tw.org.iii;
 
 import java.io.IOException;
+import java.util.Enumeration;
+
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -19,19 +21,29 @@ public class Hello extends HttpServlet {
     
     
 
-	@Override
-	public void init() throws ServletException {
-		System.out.println("init()");
-		//super.init();
-	}
+//	@Override
+//	public void init() throws ServletException {
+//		super.init();
+//		//初始化屬性
+//	}
 
 	@Override
 	public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
 		System.out.println("service()");
-		//super.service(arg0, arg1);
+		//super.service(request, response);
 		
-		String key1 = request.getParameter("key1");
-		System.out.println("key1 = " + key1);
+//		String key1 = request.getParameter("key1");
+//		System.out.println("key1 = " + key1);
+//		String key2 = request.getParameter("key2");
+//		System.out.println("key2 = " + key2);
+
+		Enumeration<String> ps = request.getParameterNames();
+		while (ps.hasMoreElements()){
+			String item = ps.nextElement();
+			String value = request.getParameter(item);
+			System.out.println(item + " => " + value);
+		}
+		
 		
 	}
 
