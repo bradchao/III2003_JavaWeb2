@@ -1,6 +1,7 @@
 package tw.org.iii;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Enumeration;
 
 import javax.servlet.ServletException;
@@ -38,6 +39,16 @@ public class Brad01 extends HttpServlet {
 			String header = headers.nextElement();
 			System.out.println(header + " : " + request.getHeader(header));
 		}
+		try{
+			PrintWriter out = response.getWriter();
+			out.write("Hello, Brad01");
+			out.flush();
+			out.close();
+		}catch(Exception ee){
+			
+		}
+		
+		
 	}
 
 }
