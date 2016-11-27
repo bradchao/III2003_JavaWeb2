@@ -32,21 +32,28 @@ public class Hello extends HttpServlet {
 		System.out.println("service()");
 		//super.service(request, response);
 		
-//		String key1 = request.getParameter("key1");
-//		System.out.println("key1 = " + key1);
-//		String key2 = request.getParameter("key2");
-//		System.out.println("key2 = " + key2);
+		try{
+			HttpServletRequest req = (HttpServletRequest)request;
+			String method = req.getMethod();
+			System.out.println(method);
+			
+//			String key1 = request.getParameter("key1");
+//			System.out.println("key1 = " + key1);
+//			String key2 = request.getParameter("key2");
+//			System.out.println("key2 = " + key2);
 
-		Enumeration<String> ps = request.getParameterNames();
-		while (ps.hasMoreElements()){
-			String item = ps.nextElement();
-			String value = request.getParameter(item);
-			System.out.println(item + " => " + value);
+			Enumeration<String> ps = req.getParameterNames();
+			while (ps.hasMoreElements()){
+				String item = ps.nextElement();
+				String value = req.getParameter(item);
+				System.out.println(item + " => " + value);
+			}
+			
+		}catch(ClassCastException ce){
+			System.out.println(ce.toString());
 		}
 		
-		
 	}
-
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("doGet()");
