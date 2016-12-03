@@ -24,20 +24,20 @@ public class Brad06 extends HttpServlet {
 		int len = request.getContentLength();
 		out.println(type + ":" + len + "<br>");
 		
-//		BufferedReader reader = request.getReader();
-//		String line; int i = 1;
-//		while ( (line = reader.readLine()) != null){
-//			out.print(i++ + "> " +line + "<br>");
-//		}
-//		reader.close();
+		BufferedReader reader = request.getReader();
+		String line; int i = 1;
+		while ( (line = reader.readLine()) != null){
+			out.print(i++ + "> " +line + "<br>");
+		}
+		reader.close();
 		
-		InputStream in =  request.getInputStream();
-		byte[] buf = new byte[len];
-		in.read(buf);
-		in.close();
-		
-		String cont = new String(buf,"BIG5");
-		out.print(getFilename(cont));
+//		InputStream in =  request.getInputStream();
+//		byte[] buf = new byte[len];
+//		in.read(buf);
+//		in.close();
+//		
+//		String cont = new String(buf);
+//		out.print(getFilename(cont));
 		
 		
 	}
