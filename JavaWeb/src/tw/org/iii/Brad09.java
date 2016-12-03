@@ -19,6 +19,9 @@ public class Brad09 extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 
+		// 針對中文檔名處理, 必須在任何  request之前做的設定
+		request.setCharacterEncoding("UTF-8");
+		
 		Collection<Part> parts= request.getParts();
 		for (Part part : parts){
 			String header = part.getHeader("Content-Disposition"); //Content-Disposition
