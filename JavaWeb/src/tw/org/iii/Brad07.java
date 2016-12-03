@@ -1,5 +1,6 @@
 package tw.org.iii;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -28,6 +29,13 @@ public class Brad07 extends HttpServlet {
 		String name = part.getName();
 		long len = part.getSize();
 		out.println(type + ":" + name + ":" + filename + ":" + len);
+		
+		byte[] buf = new byte[(int)len];
+		BufferedInputStream bin = new BufferedInputStream(part.getInputStream());
+		bin.read(buf);
+		bin.close();
+		
+		
 		
 		
 		
