@@ -27,7 +27,7 @@ public class Brad11 extends HttpServlet {
 				request.getAttribute("linedata");
 		
 		for (HashMap<String,Integer> point : line){
-			out.println(point.get("x") + " x " + point.get("y") + "<br>");
+			out.println(point.get("x") + "  x " + point.get("y") + "<br>");
 		}
 		
 		
