@@ -37,10 +37,10 @@ public class Brad03 extends HttpServlet {
 		out.println("<form>");
 		out.println("<input type='text' name='x' />");
 		out.println("<select name='op'>");
-		out.println("<option value='1'>+</option>");
-		out.println("<option value='2'>-</option>");
-		out.println("<option value='3'>x</option>");
-		out.println("<option value='4'>/</option>");
+		out.println("<option value='1' " + (op==1?"selected":"") + ">+</option>");
+		out.println("<option value='2' " + (op==2?"selected":"") + ">-</option>");
+		out.println("<option value='3' " + (op==3?"selected":"") + ">x</option>");
+		out.println("<option value='4' " + (op==4?"selected":"") + ">/</option>");
 		out.println("</select>");
 		out.println("<input type='text' name='y' />");
 		out.println("<input type='submit' value='=' />");
