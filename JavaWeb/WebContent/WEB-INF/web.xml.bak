@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" metadata-complete="true" version="3.1">
+  <servlet>
+    <servlet-name>MyBrad05</servlet-name>
+    <servlet-class>tw.org.iii.Brad05</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyBrad05</servlet-name>
+    <url-pattern>/Brad05.go</url-pattern>
+  </servlet-mapping>
+</web-app>
