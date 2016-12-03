@@ -1,6 +1,8 @@
 package tw.org.iii;
 
 import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -31,16 +33,19 @@ public class Brad07 extends HttpServlet {
 		long len = part.getSize();
 		out.println(type + ":" + name + ":" + filename + ":" + len);
 		
-//		byte[] buf = new byte[(int)len];
-//		BufferedInputStream bin = new BufferedInputStream(part.getInputStream());
-//		bin.read(buf);
-//		bin.close();
+		byte[] buf = new byte[(int)len];
+		BufferedInputStream bin = new BufferedInputStream(part.getInputStream());
+		bin.read(buf);
+		bin.close();
 		
 		ServletContext context = getServletContext();
 		String uploadPath = context.getInitParameter("upload-path");
 		out.println(uploadPath);
 		
-		
+		FileOutputStream fout = new FileOutputStream(new File(uploadPath, "brad.png"));
+		fout.write(buf);
+		fout.flush();
+		fout.close();
 		
 		
 		
