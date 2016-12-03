@@ -32,9 +32,25 @@
     <servlet-name>Brad09</servlet-name>
     <url-pattern>/Brad09</url-pattern>
   </servlet-mapping>
-	<context-param>
-		<description>檔案上傳目錄</description>
-		<param-name>upload-path</param-name>
-		<param-value>C:\javaee\git\JavaWeb\WebContent\upload</param-value>
-	</context-param>
+  <servlet>
+    <servlet-name>Brad10</servlet-name>
+    <servlet-class>tw.org.iii.Brad10</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Brad10</servlet-name>
+    <url-pattern>/Brad10</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Brad11</servlet-name>
+    <servlet-class>tw.org.iii.Brad11</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Brad11</servlet-name>
+    <url-pattern>/Brad11</url-pattern>
+  </servlet-mapping>
+  <context-param>
+    <description>檔案上傳目錄</description>
+    <param-name>upload-path</param-name>
+    <param-value>C:\javaee\git\JavaWeb\WebContent\upload</param-value>
+  </context-param>
 </web-app>
