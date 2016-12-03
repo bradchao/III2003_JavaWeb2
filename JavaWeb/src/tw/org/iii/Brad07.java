@@ -23,6 +23,12 @@ public class Brad07 extends HttpServlet {
 		String header = part.getHeader("Content-Disposition"); //Content-Disposition
 		out.print(header + "<br>");
 		
+		String filename = part.getSubmittedFileName();
+		String type = part.getContentType();
+		String name = part.getName();
+		long len = part.getSize();
+		out.println(type + ":" + name + ":" + filename + ":" + len);
+		
 		
 		
 	
