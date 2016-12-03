@@ -18,7 +18,14 @@ public class Brad05 extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		String username = request.getParameter("username");
-		out.println(username);
+		out.println(username + "<br />");
+		String gender = request.getParameter("gender");
+		out.println(gender + "<br />");
+		String[] likes = request.getParameterValues("like");
+		for(String like : likes){
+			out.println(like + "<br />");
+		}
+		
 		
 	}
 
