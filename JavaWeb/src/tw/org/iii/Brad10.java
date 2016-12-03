@@ -3,6 +3,7 @@ package tw.org.iii;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +18,19 @@ public class Brad10 extends HttpServlet {
 
 		// 針對中文檔名處理, 必須在任何  request之前做的設定
 		request.setCharacterEncoding("UTF-8");
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("Brad11");
+		// include , forward
+		
+		out.println("<h1>Brad Big Company</h1>");
+		out.print("<hr>");
+		dispatcher.include(request, response);
+		out.println("<hr>");
+		out.println("Copyleft");
+		
+		
+		
+		
 		
 	}
 
