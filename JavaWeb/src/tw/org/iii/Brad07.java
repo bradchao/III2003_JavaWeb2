@@ -27,13 +27,13 @@ public class Brad07 extends HttpServlet {
 		String header = part.getHeader("Content-Disposition"); //Content-Disposition
 		out.print(header + "<br>");
 		
-		String filename = part.getSubmittedFileName().replaceAll("\\", "/");
+		String filename = part.getSubmittedFileName().replaceAll("\\\\", "/");
 		//String filename2 = filename.replaceAll("\", "/");
 		String type = part.getContentType();
 		String name = part.getName();
 		long len = part.getSize();
-		String myfilename = getFilename(filename);
-		out.println(type + ":" + myfilename + ":" + filename + ":" + len);
+		String myfilename = getFilename(header);
+		out.println(type + ":" + myfilename + ":" + len);
 		
 		byte[] buf = new byte[(int)len];
 		BufferedInputStream bin = new BufferedInputStream(part.getInputStream());
@@ -50,9 +50,13 @@ public class Brad07 extends HttpServlet {
 		fout.close();
 	}
 	
-	private String getFilename(String wholename){
-		int s = wholename.lastIndexOf("/");
-		String filename = wholename.substring(s+1);
+	private String getFilename(String body){
+		int start = body.indexOf("filename=\"");
+		String temp = body.substring(start+10);
+		String filename = temp.substring(0, temp.indexOf("\""));
+		int s = filename.lastIndexOf("\\");
+		filename = filename.substring(s+1);
+		
 		return filename;
 	}
 }
