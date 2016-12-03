@@ -27,11 +27,13 @@ public class Brad07 extends HttpServlet {
 		String header = part.getHeader("Content-Disposition"); //Content-Disposition
 		out.print(header + "<br>");
 		
-		String filename = part.getSubmittedFileName();
+		String filename = part.getSubmittedFileName().replaceAll("\\", "/");
+		//String filename2 = filename.replaceAll("\", "/");
 		String type = part.getContentType();
 		String name = part.getName();
 		long len = part.getSize();
-		out.println(type + ":" + name + ":" + filename + ":" + len);
+		String myfilename = getFilename(filename);
+		out.println(type + ":" + myfilename + ":" + filename + ":" + len);
 		
 		byte[] buf = new byte[(int)len];
 		BufferedInputStream bin = new BufferedInputStream(part.getInputStream());
@@ -42,14 +44,15 @@ public class Brad07 extends HttpServlet {
 		String uploadPath = context.getInitParameter("upload-path");
 		out.println(uploadPath);
 		
-		FileOutputStream fout = new FileOutputStream(new File(uploadPath, "brad.png"));
+		FileOutputStream fout = new FileOutputStream(new File(uploadPath, myfilename));
 		fout.write(buf);
 		fout.flush();
 		fout.close();
-		
-		
-		
+	}
 	
-	
+	private String getFilename(String wholename){
+		int s = wholename.lastIndexOf("/");
+		String filename = wholename.substring(s+1);
+		return filename;
 	}
 }
