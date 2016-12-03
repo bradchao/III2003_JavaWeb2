@@ -24,6 +24,14 @@
     <servlet-name>Brad08</servlet-name>
     <url-pattern>/Brad08</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>Brad09</servlet-name>
+    <servlet-class>tw.org.iii.Brad09</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Brad09</servlet-name>
+    <url-pattern>/Brad09</url-pattern>
+  </servlet-mapping>
 	<context-param>
 		<description>檔案上傳目錄</description>
 		<param-name>upload-path</param-name>

@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 @MultipartConfig(location="C:/javaee/git/JavaWeb/WebContent/upload2")
-@WebServlet("/Brad07")
-public class Brad08 extends HttpServlet {
+@WebServlet("/Brad09")
+public class Brad09 extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
