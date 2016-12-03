@@ -4,6 +4,7 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -30,10 +31,14 @@ public class Brad07 extends HttpServlet {
 		long len = part.getSize();
 		out.println(type + ":" + name + ":" + filename + ":" + len);
 		
-		byte[] buf = new byte[(int)len];
-		BufferedInputStream bin = new BufferedInputStream(part.getInputStream());
-		bin.read(buf);
-		bin.close();
+//		byte[] buf = new byte[(int)len];
+//		BufferedInputStream bin = new BufferedInputStream(part.getInputStream());
+//		bin.read(buf);
+//		bin.close();
+		
+		ServletContext context = getServletContext();
+		String uploadPath = context.getInitParameter("upload-path");
+		out.println(uploadPath);
 		
 		
 		
