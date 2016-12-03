@@ -45,7 +45,7 @@ public class Brad10 extends HttpServlet {
 //		dispatcher.include(request, response);
 		dispatcher.forward(request, response);
 		out.println("<hr>");
-		out.println("Copyleft ");
+		out.println("Copyleft  ");
 		
 		
 		
