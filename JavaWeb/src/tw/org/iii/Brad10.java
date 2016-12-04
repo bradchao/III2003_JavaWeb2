@@ -40,12 +40,12 @@ public class Brad10 extends HttpServlet {
 		
 		request.setAttribute("linedata", line);
 		
-		out.println("<h1>Brad Big Company</h1>");
+		out.println("<h1>Brad Big Company </h1>");
 		out.print("<hr>");
 //		dispatcher.include(request, response);
 		dispatcher.forward(request, response);
 		out.println("<hr>");
-		out.println("Copyleft");
+		out.println("Copyleft ");
 		
 		
 		
